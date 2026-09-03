@@ -10,9 +10,12 @@ const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const app = express();
 
+const categoryRoutes = require("./routes/categoryRoutes");
+
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
+app.use("/api/categories", categoryRoutes);
 connectDB();
 
 app.get("/", (req, res) => {
