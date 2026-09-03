@@ -11,11 +11,13 @@ const authRoutes = require("./routes/authRoutes");
 const app = express();
 
 const categoryRoutes = require("./routes/categoryRoutes");
+const serviceRoutes = require("./routes/serviceRoutes");
 
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/categories", categoryRoutes);
+app.use("/api/services", serviceRoutes);
 connectDB();
 
 app.get("/", (req, res) => {
