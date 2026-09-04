@@ -4,6 +4,8 @@ const {
   createService,
   getServices,
   getServiceById,
+  updateService,
+  deleteService,
 } = require("../controllers/serviceController");
 
 const protect = require("../middleware/authMiddleware");
@@ -23,6 +25,20 @@ router.post(
   protect,
   authorize("provider", "admin"),
   createService
+);
+// Update service
+router.put(
+  "/:id",
+  protect,
+  authorize("provider", "admin"),
+  updateService
+);
+// Delete service
+router.delete(
+  "/:id",
+  protect,
+  authorize("provider", "admin"),
+  deleteService
 );
 
 module.exports = router;
