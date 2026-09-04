@@ -3,6 +3,7 @@ const express = require("express");
 const {
   createService,
   getServices,
+  getServiceById,
 } = require("../controllers/serviceController");
 
 const protect = require("../middleware/authMiddleware");
@@ -12,6 +13,9 @@ const router = express.Router();
 
 // Get all approved services
 router.get("/", getServices);
+
+// Get single approved service
+router.get("/:id", getServiceById);
 
 // Create a new service
 router.post(
