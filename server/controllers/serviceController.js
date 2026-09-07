@@ -237,6 +237,69 @@ const deleteService = async (req, res) => {
     });
   }
 };
+// ==========================================
+// GET ALL SERVICES - ADMIN
+// ==========================================
+
+const getAllServicesAdmin = async (req, res) => {
+  try {
+    const services = await Service.find()
+      .populate("category", "name slug")
+      .populate("provider", "name email phone")
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({
+      count: services.length,
+      services,
+    });
+  } catch (error) {
+    console.error("Get all services admin error:", error.message);
+
+    res.status(500).json({
+      message: "Server error",
+    });
+  }
+};
+// ==========================================
+// UPDATE SERVICE STATUS - ADMIN
+// ==========================================
+
+const updateServiceStatus = async (req, res) => {
+  try {
+    const { status } = req.body;
+
+    const allowedStatuses = ["approved", "rejected"];
+
+    if (!allowedStatuses.includes(status)) {
+      return res.status(400).json({
+        message: "Status must be either approved or rejected",
+      });
+    }
+
+    const service = await Service.findById(req.params.id);
+
+    if (!service) {
+      return res.status(404).json({
+        message: "Service not found",
+      });
+    }
+
+    service.status = status;
+
+    await service.save();
+
+    res.status(200).json({
+      message: `Service ${status} successfully`,
+      service,
+    });
+  } catch (error) {
+    console.error("Update service status error:", error.message);
+
+    res.status(500).json({
+      message: "Server error",
+    });
+  }
+};
 
 module.exports = {
   createService,
@@ -244,4 +307,6 @@ module.exports = {
   getServiceById,
   updateService,
   deleteService,
+  getAllServicesAdmin,
+  updateServiceStatus,
 };
