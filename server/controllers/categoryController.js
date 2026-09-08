@@ -60,8 +60,75 @@ const getCategories = async (req, res) => {
     });
   }
 };
+// ==========================================
+// UPDATE CATEGORY - ADMIN
+// ==========================================
+
+const updateCategory = async (req, res) => {
+  try {
+    const category = await Category.findById(req.params.id);
+
+    if (!category) {
+      return res.status(404).json({
+        message: "Category not found",
+      });
+    }
+
+    const { name, slug, description, icon, image, isActive } = req.body;
+
+    if (name !== undefined) category.name = name;
+    if (slug !== undefined) category.slug = slug;
+    if (description !== undefined) category.description = description;
+    if (icon !== undefined) category.icon = icon;
+    if (image !== undefined) category.image = image;
+    if (isActive !== undefined) category.isActive = isActive;
+
+    await category.save();
+
+    res.status(200).json({
+      message: "Category updated successfully",
+      category,
+    });
+  } catch (error) {
+    console.error("Update category error:", error.message);
+
+    res.status(500).json({
+      message: "Server error",
+    });
+  }
+};
+
+// ==========================================
+// DELETE CATEGORY - ADMIN
+// ==========================================
+
+const deleteCategory = async (req, res) => {
+  try {
+    const category = await Category.findById(req.params.id);
+
+    if (!category) {
+      return res.status(404).json({
+        message: "Category not found",
+      });
+    }
+
+    await Category.findByIdAndDelete(req.params.id);
+
+    res.status(200).json({
+      message: "Category deleted successfully",
+    });
+  } catch (error) {
+    console.error("Delete category error:", error.message);
+
+    res.status(500).json({
+      message: "Server error",
+    });
+  }
+};
 
 module.exports = {
   createCategory,
   getCategories,
+  updateCategory,
+  deleteCategory,
 };
