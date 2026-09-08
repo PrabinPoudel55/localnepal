@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
+import MainLayout from "./layouts/MainLayout";
+
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import ServiceDetails from "./pages/ServiceDetails";
@@ -8,17 +10,15 @@ import Register from "./pages/Register";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-
-      <Route path="/services" element={<Services />} />
-
-      <Route path="/services/:id" element={<ServiceDetails />} />
-
-      <Route path="/login" element={<Login />} />
-
-      <Route path="/register" element={<Register />} />
-    </Routes>
+    <MainLayout>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/services/:id" element={<ServiceDetails />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    </MainLayout>
   );
 }
 
