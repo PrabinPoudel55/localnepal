@@ -270,3 +270,43 @@ ul {
     padding: 48px 0;
   }
 }
+
+.footer-logo {
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-white);
+  margin-bottom: 12px;
+}
+
+.footer-logo span {
+  color: var(--color-secondary);
+}
+
+/* =========================
+   Responsive Navbar
+========================= */
+
+@media (max-width: 768px) {
+  .navbar-container {
+    min-height: auto;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .navbar-menu {
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-menu {
+    gap: 12px;
+    font-size: 14px;
+  }
+}

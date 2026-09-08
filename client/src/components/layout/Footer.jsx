@@ -1,10 +1,15 @@
+import { Link } from "react-router-dom";
+
 function Footer() {
   return (
     <footer className="footer">
       <div className="container footer-container">
 
         <div className="footer-brand">
-          <h3>Local<span>Nepal</span></h3>
+          <Link to="/" className="footer-logo">
+            Local<span>Nepal</span>
+          </Link>
+
           <p>
             Find trusted local services near you.
           </p>
@@ -13,9 +18,9 @@ function Footer() {
         <div className="footer-links">
           <h4>Quick Links</h4>
 
-          <a href="/">Home</a>
-          <a href="/services">Services</a>
-          <a href="/register">Become a Provider</a>
+          <Link to="/">Home</Link>
+          <Link to="/services">Services</Link>
+          <Link to="/register">Become a Provider</Link>
         </div>
 
         <div className="footer-contact">

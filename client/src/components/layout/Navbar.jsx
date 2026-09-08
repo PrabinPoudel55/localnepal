@@ -4,7 +4,7 @@ function Navbar() {
   return (
     <header className="navbar">
       <div className="container navbar-container">
-        
+
         {/* Logo */}
         <Link to="/" className="navbar-logo">
           Local<span>Nepal</span>
