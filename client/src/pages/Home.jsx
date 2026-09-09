@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div className="home">
@@ -99,9 +100,9 @@ const Home = () => {
     </div>
 
     <div className="categories-action">
-      <button className="btn btn-outline">
-        View All Categories
-      </button>
+      <Link to="/services" className="btn btn-outline">
+  Explore All Services
+</Link>
     </div>
 
   </div>
@@ -144,9 +145,9 @@ const Home = () => {
               ⭐ 4.8
             </span>
 
-            <button className="btn btn-primary">
-              View Details
-            </button>
+            <Link to="/services/1" className="btn btn-primary">
+  View Details
+</Link>
           </div>
         </div>
       </div>
@@ -170,9 +171,9 @@ const Home = () => {
               ⭐ 4.7
             </span>
 
-            <button className="btn btn-primary">
-              View Details
-            </button>
+            <Link to="/services/2" className="btn btn-primary">
+  View Details
+</Link>
           </div>
         </div>
       </div>
@@ -196,9 +197,9 @@ const Home = () => {
               ⭐ 4.9
             </span>
 
-            <button className="btn btn-primary">
-              View Details
-            </button>
+            <Link to="/services/3" className="btn btn-primary">
+  View Details
+</Link>
           </div>
         </div>
       </div>
@@ -211,6 +212,191 @@ const Home = () => {
       </button>
     </div>
 
+  </div>
+</section>
+{/* How LocalNepal Works */}
+<section className="section how-it-works-section">
+  <div className="container">
+
+    <div className="section-header how-it-works-header">
+      <p className="section-label">SIMPLE & EASY</p>
+
+      <h2 className="section-title">
+        How LocalNepal Works
+      </h2>
+
+      <p className="section-subtitle">
+        Finding the right local service provider is simple.
+        Follow three easy steps to get started.
+      </p>
+    </div>
+
+    <div className="steps-grid">
+
+      {/* Step 1 */}
+      <div className="step-card">
+        <div className="step-number">1</div>
+
+        <div className="step-icon">🔍</div>
+
+        <h3>Search</h3>
+
+        <p>
+          Search for the service you need and choose your
+          preferred location.
+        </p>
+      </div>
+
+      {/* Step 2 */}
+      <div className="step-card">
+        <div className="step-number">2</div>
+
+        <div className="step-icon">📋</div>
+
+        <h3>Explore</h3>
+
+        <p>
+          Compare service providers, ratings, locations,
+          and available services.
+        </p>
+      </div>
+
+      {/* Step 3 */}
+      <div className="step-card">
+        <div className="step-number">3</div>
+
+        <div className="step-icon">🤝</div>
+
+        <h3>Connect</h3>
+
+        <p>
+          Contact the provider directly and get the service
+          you need.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+{/* Why Choose LocalNepal */}
+<section className="section why-section">
+  <div className="container">
+
+    <div className="why-grid">
+
+      <div className="why-content">
+        <p className="section-label">WHY LOCALNEPAL?</p>
+
+        <h2 className="section-title">
+          Everything You Need to Find the Right Local Service
+        </h2>
+
+        <p className="section-subtitle">
+          LocalNepal makes it easier to discover local service
+          providers, compare your options, and connect with the
+          right professional.
+        </p>
+
+        <div className="benefits-list">
+
+          <div className="benefit-item">
+            <div className="benefit-icon">✓</div>
+
+            <div>
+              <h3>Trusted Providers</h3>
+              <p>
+                Discover service providers listed on LocalNepal.
+              </p>
+            </div>
+          </div>
+
+          <div className="benefit-item">
+            <div className="benefit-icon">🔍</div>
+
+            <div>
+              <h3>Easy Discovery</h3>
+              <p>
+                Quickly find services based on your needs and
+                location.
+              </p>
+            </div>
+          </div>
+
+          <div className="benefit-item">
+            <div className="benefit-icon">⭐</div>
+
+            <div>
+              <h3>Ratings & Reviews</h3>
+              <p>
+                Use ratings and reviews to make better decisions.
+              </p>
+            </div>
+          </div>
+
+          <div className="benefit-item">
+            <div className="benefit-icon">📍</div>
+
+            <div>
+              <h3>Local Services</h3>
+              <p>
+                Find service providers across Kathmandu Valley
+                and beyond.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div className="why-visual">
+        <div className="why-card">
+          <div className="why-card-icon">🇳🇵</div>
+
+          <h3>Local Services, Made Simple</h3>
+
+          <p>
+            Connecting people with local professionals across
+            Nepal.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+{/* Become a Provider CTA */}
+<section className="provider-cta-section">
+  <div className="container">
+    <div className="provider-cta">
+
+      <div className="provider-cta-content">
+        <p className="section-label">
+          FOR SERVICE PROVIDERS
+        </p>
+
+        <h2>
+          Grow Your Business with LocalNepal
+        </h2>
+
+        <p>
+          List your services on LocalNepal and make it easier
+          for people in your area to discover and contact you.
+        </p>
+
+        <div className="provider-cta-actions">
+          <Link to="/register" className="btn btn-primary">
+  Become a Provider
+</Link>
+
+<Link to="/services" className="btn btn-outline">
+  Explore Services
+</Link>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
     </div>

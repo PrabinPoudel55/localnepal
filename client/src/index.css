@@ -585,3 +585,264 @@ ul {
     width: 100%;
   }
 }
+/* =========================
+   How LocalNepal Works
+========================= */
+
+.how-it-works-section {
+  background-color: var(--color-background);
+}
+
+.how-it-works-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.step-card {
+  position: relative;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  text-align: center;
+}
+
+.step-number {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.step-icon {
+  font-size: 38px;
+  margin: 12px 0 20px;
+}
+
+.step-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.step-card p {
+  color: var(--color-text-light);
+  font-size: 15px;
+}
+
+@media (max-width: 768px) {
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+/* =========================
+   Why Choose LocalNepal
+========================= */
+
+.why-section {
+  background-color: var(--color-white);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 70px;
+}
+
+.benefits-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.benefit-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #eef7f6;
+  color: var(--color-secondary);
+
+  border-radius: 50%;
+  font-weight: 700;
+}
+
+.benefit-item h3 {
+  font-size: 17px;
+  margin-bottom: 5px;
+}
+
+.benefit-item p {
+  color: var(--color-text-light);
+  font-size: 14px;
+}
+
+.why-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.why-card {
+  width: 100%;
+  max-width: 420px;
+  min-height: 360px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background-color: var(--color-primary);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+
+  box-shadow: var(--shadow-md);
+}
+
+.why-card-icon {
+  font-size: 64px;
+  margin-bottom: 24px;
+}
+
+.why-card h3 {
+  color: var(--color-white);
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+
+.why-card p {
+  color: #d1d5db;
+}
+
+@media (max-width: 900px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .why-visual {
+    order: -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .benefits-list {
+    grid-template-columns: 1fr;
+  }
+
+  .why-card {
+    min-height: 300px;
+  }
+}
+/* =========================
+   Provider CTA
+========================= */
+
+.provider-cta-section {
+  padding: 80px 0;
+  background-color: var(--color-background);
+}
+
+.provider-cta {
+  background-color: var(--color-primary);
+  border-radius: var(--radius-lg);
+  padding: 70px 60px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.provider-cta-content {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.provider-cta .section-label {
+  color: var(--color-accent);
+}
+
+.provider-cta h2 {
+  color: var(--color-white);
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.provider-cta p:not(.section-label) {
+  color: #d1d5db;
+  font-size: 17px;
+  margin-bottom: 32px;
+}
+
+.provider-cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.provider-cta-actions .btn-outline {
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+.provider-cta-actions .btn-outline:hover {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+@media (max-width: 600px) {
+  .provider-cta {
+    padding: 50px 24px;
+  }
+
+  .provider-cta h2 {
+    font-size: 28px;
+  }
+
+  .provider-cta p:not(.section-label) {
+    font-size: 15px;
+  }
+
+  .provider-cta-actions {
+    flex-direction: column;
+  }
+
+  .provider-cta-actions .btn {
+    width: 100%;
+  }
+}
