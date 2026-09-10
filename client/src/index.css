@@ -855,3 +855,12 @@ ul {
 .category-error {
   color: #dc2626;
 }
+.service-message {
+  text-align: center;
+  padding: 30px 0;
+  color: var(--color-text-light);
+}
+
+.service-error {
+  color: #dc2626;
+}

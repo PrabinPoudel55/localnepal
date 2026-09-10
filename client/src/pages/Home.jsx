@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getCategories } from "../services/categoryService";
+import { getServices } from "../services/serviceService";
 const Home = () => {
   const [categories, setCategories] = useState([]);
 const [loadingCategories, setLoadingCategories] = useState(true);
 const [categoryError, setCategoryError] = useState("");
-  useEffect(() => {
+const [services, setServices] = useState([]);
+const [loadingServices, setLoadingServices] = useState(true);
+const [serviceError, setServiceError] = useState("");
+//categories useeffect  
+useEffect(() => {
   const fetchCategories = async () => {
     try {
       const data = await getCategories();
@@ -18,6 +23,21 @@ const [categoryError, setCategoryError] = useState("");
   };
 
   fetchCategories();
+}, []);
+//services useeffect
+useEffect(() => {
+  const fetchServices = async () => {
+    try {
+      const data = await getServices();
+      setServices(data.services);
+    } catch (error) {
+      setServiceError("Unable to load services.");
+    } finally {
+      setLoadingServices(false);
+    }
+  };
+
+  fetchServices();
 }, []);
   return (
     <div className="home">
@@ -125,87 +145,61 @@ const [categoryError, setCategoryError] = useState("");
       </p>
     </div>
 
-    <div className="services-grid">
+  {loadingServices ? (
+  <p className="service-message">Loading services...</p>
+) : serviceError ? (
+  <p className="service-message service-error">
+    {serviceError}
+  </p>
+) : services.length === 0 ? (
+  <p className="service-message">
+    No services available at the moment.
+  </p>
+) : (
+  <div className="services-grid">
+    {services.slice(0, 3).map((service) => (
+      <div className="service-card" key={service._id}>
 
-      <div className="service-card">
         <div className="service-image">
-          <span>Web Development</span>
+          {service.images && service.images.length > 0 ? (
+            <img
+              src={service.images[0]}
+              alt={service.title}
+            />
+          ) : (
+            <span>{service.title}</span>
+          )}
         </div>
 
         <div className="service-content">
-          <p className="service-category">IT & Technology</p>
+          <p className="service-category">
+            {service.category?.name || "Service"}
+          </p>
 
-          <h3>Professional Web Development</h3>
+          <h3>{service.title}</h3>
 
           <p className="service-location">
-            📍 Kathmandu
+            📍 {service.location?.city || "Nepal"}
           </p>
 
           <div className="service-footer">
             <span className="service-rating">
-              ⭐ 4.8
+              ⭐ {service.rating > 0 ? service.rating : "New"}
             </span>
 
-            <Link to="/services/1" className="btn btn-primary">
-  View Details
-</Link>
+            <Link
+              to={`/services/${service._id}`}
+              className="btn btn-primary"
+            >
+              View Details
+            </Link>
           </div>
         </div>
+
       </div>
-
-      <div className="service-card">
-        <div className="service-image">
-          <span>Digital Marketing</span>
-        </div>
-
-        <div className="service-content">
-          <p className="service-category">Digital Marketing</p>
-
-          <h3>SEO & Digital Marketing</h3>
-
-          <p className="service-location">
-            📍 Lalitpur
-          </p>
-
-          <div className="service-footer">
-            <span className="service-rating">
-              ⭐ 4.7
-            </span>
-
-            <Link to="/services/2" className="btn btn-primary">
-  View Details
-</Link>
-          </div>
-        </div>
-      </div>
-
-      <div className="service-card">
-        <div className="service-image">
-          <span>Photography</span>
-        </div>
-
-        <div className="service-content">
-          <p className="service-category">Photography</p>
-
-          <h3>Professional Photography</h3>
-
-          <p className="service-location">
-            📍 Bhaktapur
-          </p>
-
-          <div className="service-footer">
-            <span className="service-rating">
-              ⭐ 4.9
-            </span>
-
-            <Link to="/services/3" className="btn btn-primary">
-  View Details
-</Link>
-          </div>
-        </div>
-      </div>
-
-    </div>
+    ))}
+  </div>
+)}
 
     <div className="services-action">
       <button className="btn btn-outline">
