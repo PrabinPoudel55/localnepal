@@ -1,5 +1,24 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getCategories } from "../services/categoryService";
 const Home = () => {
+  const [categories, setCategories] = useState([]);
+const [loadingCategories, setLoadingCategories] = useState(true);
+const [categoryError, setCategoryError] = useState("");
+  useEffect(() => {
+  const fetchCategories = async () => {
+    try {
+      const data = await getCategories();
+      setCategories(data.categories);
+    } catch (error) {
+      setCategoryError("Unable to load categories.");
+    } finally {
+      setLoadingCategories(false);
+    }
+  };
+
+  fetchCategories();
+}, []);
   return (
     <div className="home">
 
@@ -59,45 +78,27 @@ const Home = () => {
       </p>
     </div>
 
-    <div className="categories-grid">
+    {loadingCategories ? (
+  <p className="category-message">Loading categories...</p>
+) : categoryError ? (
+  <p className="category-message category-error">
+    {categoryError}
+  </p>
+) : (
+  <div className="categories-grid">
+    {categories.map((category) => (
+      <div className="category-card" key={category._id}>
+        <div className="category-icon">
+          {category.icon || "📍"}
+        </div>
 
-      <div className="category-card">
-        <div className="category-icon">💻</div>
-        <h3>IT & Technology</h3>
-        <p>Web development, software and IT services.</p>
+        <h3>{category.name}</h3>
+
+        <p>{category.description}</p>
       </div>
-
-      <div className="category-card">
-        <div className="category-icon">📈</div>
-        <h3>Digital Marketing</h3>
-        <p>SEO, social media and online marketing.</p>
-      </div>
-
-      <div className="category-card">
-        <div className="category-icon">🎨</div>
-        <h3>Graphic Design</h3>
-        <p>Creative designs for businesses and brands.</p>
-      </div>
-
-      <div className="category-card">
-        <div className="category-icon">📷</div>
-        <h3>Photography</h3>
-        <p>Professional photography and videography.</p>
-      </div>
-
-      <div className="category-card">
-        <div className="category-icon">📚</div>
-        <h3>Education & Tutoring</h3>
-        <p>Find tutors and educational services.</p>
-      </div>
-
-      <div className="category-card">
-        <div className="category-icon">🔧</div>
-        <h3>Repair & Maintenance</h3>
-        <p>Reliable repair and maintenance services.</p>
-      </div>
-
-    </div>
+    ))}
+  </div>
+)}
 
     <div className="categories-action">
       <Link to="/services" className="btn btn-outline">

@@ -846,3 +846,12 @@ ul {
     width: 100%;
   }
 }
+.category-message {
+  text-align: center;
+  padding: 30px 0;
+  color: var(--color-text-light);
+}
+
+.category-error {
+  color: #dc2626;
+}
