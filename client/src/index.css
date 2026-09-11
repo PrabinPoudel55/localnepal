@@ -864,3 +864,86 @@ ul {
 .service-error {
   color: #dc2626;
 }
+/* =========================
+   SERVICES PAGE
+========================= */
+
+.services-page {
+  padding: 70px 0;
+  background: var(--color-background);
+  min-height: 70vh;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.page-header h1 {
+  margin-bottom: 12px;
+}
+
+.page-header p {
+  color: var(--color-text-light);
+}
+
+.section-label {
+  color: var(--color-secondary) !important;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.service-message {
+  text-align: center;
+  padding: 30px 0;
+  color: var(--color-text-light);
+}
+
+.service-error {
+  color: #dc2626;
+}
+/* =========================
+   SERVICE SEARCH
+========================= */
+
+.service-search {
+  max-width: 700px;
+  margin: 0 auto 45px;
+  display: flex;
+  gap: 10px;
+}
+
+.service-search input {
+  flex: 1;
+  padding: 14px 18px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.service-search input:focus {
+  border-color: var(--color-secondary);
+}
+
+.search-clear {
+  padding: 0 20px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: var(--color-white);
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.search-clear:hover {
+  opacity: 0.9;
+}
